@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PerfectCarity" Class="PerfectCarityDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=PIGFORD-LAPTOP\EXPRESS200832;Initial Catalog=PerfectCarity;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PerfectCarityConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CarityUsers" Member="CarityUsers">
+    <Type Name="CarityUser">
+      <Column Name="username" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="email_addr" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="security_question_1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="security_answer_1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="security_question_2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="security_answer_2" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="image_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="locked_indc" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="CarityUser_Profile" Member="Profiles" ThisKey="username" OtherKey="username" Type="Profile" />
+      <Association Name="CarityUser_Entry" Member="Entries" ThisKey="username" OtherKey="username" Type="Entry" />
+      <Association Name="CarityUser_EntryType" Member="EntryTypes" ThisKey="username" OtherKey="username" Type="EntryType" />
+      <Association Name="CarityUser_ProfileAccess" Member="ProfileAccesses" ThisKey="username" OtherKey="username" Type="ProfileAccess" />
+      <Association Name="CarityUser_Image" Member="Images" ThisKey="username" OtherKey="username" Type="Image" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Profiles" Member="Profiles">
+    <Type Name="Profile">
+      <Column Name="profile_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="image_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="username" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="access_key" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Association Name="Profile_Entry" Member="Entries" ThisKey="profile_id" OtherKey="profile_id" Type="Entry" />
+      <Association Name="Profile_Goal" Member="Goals" ThisKey="profile_id" OtherKey="profile_id" Type="Goal" />
+      <Association Name="Profile_ProfileAccess" Member="ProfileAccesses" ThisKey="profile_id" OtherKey="profile_id" Type="ProfileAccess" />
+      <Association Name="Profile_Image" Member="Images" ThisKey="profile_id" OtherKey="profile_id" Type="Image" />
+      <Association Name="CarityUser_Profile" Member="CarityUser" ThisKey="username" OtherKey="username" Type="CarityUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Entries" Member="Entries">
+    <Type Name="Entry">
+      <Column Name="entry_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="profile_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="entry_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="behavior_type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="text" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="entry_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="entry_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="create_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Entry_Image" Member="Images" ThisKey="entry_id" OtherKey="entry_id" Type="Image" />
+      <Association Name="CarityUser_Entry" Member="CarityUser" ThisKey="username" OtherKey="username" Type="CarityUser" IsForeignKey="true" />
+      <Association Name="Profile_Entry" Member="Profile" ThisKey="profile_id" OtherKey="profile_id" Type="Profile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EntryTypes" Member="EntryTypes">
+    <Type Name="EntryType">
+      <Column Name="entry_type_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="text" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="system_default" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="CarityUser_EntryType" Member="CarityUser" ThisKey="username" OtherKey="username" Type="CarityUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Goals" Member="Goals">
+    <Type Name="Goal">
+      <Column Name="goal_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="profile_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="text" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="goal_start_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="goal_end_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="goal_type_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="entry_totals_1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="entry_totals_2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Profile_Goal" Member="Profile" ThisKey="profile_id" OtherKey="profile_id" Type="Profile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProfileAccess" Member="ProfileAccesses">
+    <Type Name="ProfileAccess">
+      <Column Name="access_key" Type="System.String" DbType="VarChar(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="profile_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="access_code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CarityUser_ProfileAccess" Member="CarityUser" ThisKey="username" OtherKey="username" Type="CarityUser" IsForeignKey="true" />
+      <Association Name="Profile_ProfileAccess" Member="Profile" ThisKey="profile_id" OtherKey="profile_id" Type="Profile" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Images" Member="Images">
+    <Type Name="Image">
+      <Column Name="image_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="profile_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="entry_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="image" Member="image1" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="size" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CarityUser_Image" Member="CarityUser" ThisKey="username" OtherKey="username" Type="CarityUser" IsForeignKey="true" />
+      <Association Name="Entry_Image" Member="Entry" ThisKey="entry_id" OtherKey="entry_id" Type="Entry" IsForeignKey="true" />
+      <Association Name="Profile_Image" Member="Profile" ThisKey="profile_id" OtherKey="profile_id" Type="Profile" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

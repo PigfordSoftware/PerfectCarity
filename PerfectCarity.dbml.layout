@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 11.375" name="PerfectCarity">
+  <DataContextMoniker Name="/PerfectCarityDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c9f1968e-0ff8-4661-b7f6-9a5af867685e" absoluteBounds="0.75, 5.125, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/PerfectCarityDataContext/CarityUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eb3abc45-cf18-4598-958e-643e666606d1" absoluteBounds="0.765, 5.585, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f984a132-0def-4f55-a18f-12c4c7ea5a26" absoluteBounds="3.5, 6.75, 2, 1.7708968098958335">
+      <DataClassMoniker Name="/PerfectCarityDataContext/Profile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fcbe5893-a040-436d-9a9b-b09b6c353d51" absoluteBounds="3.515, 7.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6051df16-2dde-44de-9725-bf2776c63c59" absoluteBounds="6.25, 2.5, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/PerfectCarityDataContext/Entry" />
+      <nestedChildShapes>
+        <elementListCompartment Id="31e01158-abb0-443b-925a-d4d8d7dc9ea7" absoluteBounds="6.265, 2.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa652208-b0c3-4ff9-b7be-be1c364c7550" absoluteBounds="3.5, 4.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PerfectCarityDataContext/EntryType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc3f2966-062f-48be-bc56-24205544a869" absoluteBounds="3.515, 4.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bb775de9-6422-431d-91a4-01fa105f725b" absoluteBounds="6.25, 8.75, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/PerfectCarityDataContext/Goal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e028b95a-23fb-4710-9a65-4d25b77511ce" absoluteBounds="6.265, 9.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="23c8101f-686e-43cd-b1b8-16326278bc98" absoluteBounds="6.25, 6, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PerfectCarityDataContext/ProfileAccess" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec8573cb-cf67-4b39-a49e-d98e22d5ec74" absoluteBounds="6.265, 6.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 7.30370198567708); (3.5 : 7.30370198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PerfectCarityDataContext/CarityUser/CarityUser_Profile" />
+      <nodes>
+        <classShapeMoniker Id="c9f1968e-0ff8-4661-b7f6-9a5af867685e" />
+        <classShapeMoniker Id="f984a132-0def-4f55-a18f-12c4c7ea5a26" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.53125 : 5.125); (1.53125 : 3.24162225585938); (6.25 : 3.24162225585938)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PerfectCarityDataContext/CarityUser/CarityUser_Entry" />
+      <nodes>
+        <classShapeMoniker Id="c9f1968e-0ff8-4661-b7f6-9a5af867685e" />
+        <classShapeMoniker Id="6051df16-2dde-44de-9725-bf2776c63c59" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.75); (5.875 : 6.375); (5.875 : 3.77005126953125); (6.25 : 3.77005126953125)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PerfectCarityDataContext/Profile/Profile_Entry" />
+      <nodes>
+        <classShapeMoniker Id="f984a132-0def-4f55-a18f-12c4c7ea5a26" />
+        <classShapeMoniker Id="6051df16-2dde-44de-9725-bf2776c63c59" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.41429768880208); (3.5 : 5.41429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PerfectCarityDataContext/CarityUser/CarityUser_EntryType" />
+      <nodes>
+        <classShapeMoniker Id="c9f1968e-0ff8-4661-b7f6-9a5af867685e" />
+        <classShapeMoniker Id="aa652208-b0c3-4ff9-b7be-be1c364c7550" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 8.52089680989583); (4.5 : 9.92390055338542); (6.25 : 9.92390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PerfectCarityDataContext/Profile/Profile_Goal" />
+      <nodes>
+        <classShapeMoniker Id="f984a132-0def-4f55-a18f-12c4c7ea5a26" />
+        <classShapeMoniker Id="bb775de9-6422-431d-91a4-01fa105f725b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.34375); (6.25 : 6.34375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PerfectCarityDataContext/CarityUser/CarityUser_ProfileAccess" />
+      <nodes>
+        <classShapeMoniker Id="c9f1968e-0ff8-4661-b7f6-9a5af867685e" />
+        <classShapeMoniker Id="23c8101f-686e-43cd-b1b8-16326278bc98" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.19555018880208); (6.25 : 7.19555018880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PerfectCarityDataContext/Profile/Profile_ProfileAccess" />
+      <nodes>
+        <classShapeMoniker Id="f984a132-0def-4f55-a18f-12c4c7ea5a26" />
+        <classShapeMoniker Id="23c8101f-686e-43cd-b1b8-16326278bc98" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="412b4a5c-edb8-412f-ada3-c3ca39492d0d" absoluteBounds="9.5, 3.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/PerfectCarityDataContext/Image" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8dd2d0fd-baa2-47fb-8581-9513b298c233" absoluteBounds="9.515, 3.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 5.85179768880208); (5.79166666666667 : 5.85179768880208 : JumpStart); (5.95833333333333 : 5.85179768880208 : JumpEnd); (9.88541416666667 : 5.85179768880208 : JumpStart); (10.0520808333333 : 5.85179768880208 : JumpEnd); (10.5 : 5.85179768880208); (10.5 : 5.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PerfectCarityDataContext/CarityUser/CarityUser_Image" />
+      <nodes>
+        <classShapeMoniker Id="c9f1968e-0ff8-4661-b7f6-9a5af867685e" />
+        <classShapeMoniker Id="412b4a5c-edb8-412f-ada3-c3ca39492d0d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.27005126953125); (9.5 : 4.27005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PerfectCarityDataContext/Entry/Entry_Image" />
+      <nodes>
+        <classShapeMoniker Id="6051df16-2dde-44de-9725-bf2776c63c59" />
+        <classShapeMoniker Id="412b4a5c-edb8-412f-ada3-c3ca39492d0d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.08099609375); (9.9687475 : 8.08099609375); (9.9687475 : 5.4631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PerfectCarityDataContext/Profile/Profile_Image" />
+      <nodes>
+        <classShapeMoniker Id="f984a132-0def-4f55-a18f-12c4c7ea5a26" />
+        <classShapeMoniker Id="412b4a5c-edb8-412f-ada3-c3ca39492d0d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

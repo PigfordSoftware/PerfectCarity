@@ -1,0 +1,52 @@
+﻿body {
+    background-color:#FFFCEA;
+    float:left;
+    min-width: 100%;
+    height:100%;
+}
+.loginHeader {
+    background-color:#6EC1DD;
+    float:left;
+    width:inherit;
+}
+.loginHeader .loginInfo {
+    position:relative;
+    right:10px;
+    top:1px;
+    width: 664px;
+    height:51px;
+}
+.loginHeader .loginInfo .userName {
+    align-content:center;
+    float:right;
+    position:relative;
+    top:3px;
+    right:273px;
+    width:200px;
+    height:41px;
+}
+.loginHeader .loginInfo .password {
+    align-content:center;
+    float:right;
+    position:relative;
+    top:2px;
+    right:-131px;
+    width:200px;
+    height:42px;
+}
+.loginHeader .loginInfo .loginButtonHeader {
+    align-content:center;
+    float:right;
+    position:relative;
+    top:19px;
+    left:383px;
+    height: 29px;
+    width: 50px;
+}
+.textbox {
+    border-radius:10px;
+}
+.button {
+    border-radius:5px;
+}
+
