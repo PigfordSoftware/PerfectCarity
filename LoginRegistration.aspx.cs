@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.Linq;
+using System.Net.Mail;
+using System.Net;
 
 namespace PerfectCarity
 {
@@ -60,6 +62,33 @@ namespace PerfectCarity
                 db.CarityUsers.InsertOnSubmit(cUser);
                 db.SubmitChanges();
                 //this is where we move to the next page and create some cookies
+                System.Net.Mail.MailMessage mm = new System.Net.Mail.MailMessage();
+                mm.To.Add(new System.Net.Mail.MailAddress(txtRegEmailAddress.Text, txtRegUsername.Text));
+                mm.From = new System.Net.Mail.MailAddress("ryan@pigfordsoftware.com");
+                mm.Sender = new System.Net.Mail.MailAddress("ryan@pigfordsoftware.com", "Ryan T Pigford");
+                mm.Subject = "This is Test Email";
+                mm.Body = "<h3>Thank you for signing up at PerfectCarity.com</h3>";
+                mm.IsBodyHtml = true;
+                mm.Priority = System.Net.Mail.MailPriority.High; // Set Priority to sending mail
+                System.Net.Mail.SmtpClient smtCliend = new System.Net.Mail.SmtpClient();
+                smtCliend.Host = "mail.pigfordsoftware.com";
+                smtCliend.Port = 25;    // SMTP port no  
+                smtCliend.EnableSsl = false;
+                smtCliend.Credentials = new NetworkCredential("ryan@pigfordsoftware.com", "thomas81");
+                smtCliend.DeliveryMethod = SmtpDeliveryMethod.Network;
+                try
+                {
+                   smtCliend.Send(mm);
+                }
+                catch (System.Net.Mail.SmtpException ex)
+                {
+                   //lblMsg.Text = ex.ToString();
+                }
+                catch (Exception exe)
+                {
+                   //lblMsg.Text = "\n\n\n" + exe.ToString();
+                }
+                Server.Transfer("EditUser.aspx");
             }
             else
             {

@@ -33,6 +33,13 @@
         .auto-style8 {
             color: #FFFFFF;
         }
+    .auto-style9 {
+      width: 521px;
+      height: 45px;
+   }
+   .auto-style10 {
+      height: 45px;
+   }
     </style>
 </asp:Content>
 
@@ -41,12 +48,15 @@
 <asp:Content ID="Content2" runat="server" contentplaceholderid="cphPageDetails">
     <table class="auto-style1">
         <tr>
+            <td class="auto-style9" style="vertical-align: middle"></td>
+            <td class="auto-style10" style="font-family: Arial, Helvetica, sans-serif; font-size: xx-large; color: #0000FF; text-align: left">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sign Up</td>
+        </tr>
+        <tr>
             <td class="auto-style6" style="vertical-align: middle">&nbsp;&nbsp;This is Carity marketing infomation<br />
                 anyone can user carity<br />
                 it is fun and exciting.</td>
             <td>
-                <br />
-                <br />
                 <asp:TextBox ID="txtRegEmailAddress" runat="server" Placeholder ="Email Address" Width="250px" style="margin-left: 0px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvRegEmailAddress" runat="server" ControlToValidate="txtRegEmailAddress" ErrorMessage="Email Address Required" ForeColor="Red">*</asp:RequiredFieldValidator>
                 <br />
