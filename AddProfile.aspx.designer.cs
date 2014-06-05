@@ -10,7 +10,7 @@
 namespace PerfectCarity {
     
     
-    public partial class EditUser {
+    public partial class AddProfile {
         
         /// <summary>
         /// sm1 control.
@@ -148,75 +148,66 @@ namespace PerfectCarity {
         protected global::System.Web.UI.WebControls.ImageButton imgUserImage;
         
         /// <summary>
-        /// fileUpload1 control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUpload1;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// uploadButton control.
+        /// profileEmails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button uploadButton;
+        protected global::System.Web.UI.WebControls.Panel profileEmails;
         
         /// <summary>
-        /// lblSecurityQuestions control.
+        /// profileUserAccess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSecurityQuestions;
+        protected global::System.Web.UI.WebControls.Panel profileUserAccess;
         
         /// <summary>
-        /// ddlSecurityQuest1 control.
+        /// addUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSecurityQuest1;
+        protected global::System.Web.UI.WebControls.ImageButton addUser;
         
         /// <summary>
-        /// txtAnswer1 control.
+        /// txtEmailAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAnswer1;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailAddress;
         
         /// <summary>
-        /// ddlSecurityQuest2 control.
+        /// userAccess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSecurityQuest2;
+        protected global::System.Web.UI.WebControls.TextBox userAccess;
         
         /// <summary>
-        /// txtAnswer2 control.
+        /// createButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAnswer2;
-        
-        /// <summary>
-        /// registerButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registerButton;
+        protected global::System.Web.UI.WebControls.Button createButton;
     }
 }

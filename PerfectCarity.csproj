@@ -57,6 +57,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -75,17 +76,35 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddProfile.aspx" />
     <Content Include="CarityMaster.Master" />
+    <Content Include="Images\carityNameWhite.png" />
     <Content Include="EditUser.aspx" />
+    <Content Include="imageLoad.html" />
+    <Content Include="Images\4 points with Carity.png" />
+    <Content Include="Images\carityName.png" />
+    <Content Include="Images\Hand Logo White.png" />
+    <Content Include="Images\Hand Logo.png" />
+    <Content Include="Images\plus.png" />
+    <Content Include="Images\settings.png" />
+    <Content Include="LinkProfile.aspx" />
+    <Content Include="LoadImagePage.aspx" />
     <Content Include="PerfectCarity.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>PerfectCarity.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="packages.config" />
     <None Include="PerfectCarity.dbml.layout">
       <DependentUpon>PerfectCarity.dbml</DependentUpon>
     </None>
     <None Include="Properties\PublishProfiles\pigfordsoftware.com - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="UploadImage.cshtml" />
+    <Content Include="UploadHandler.ashx" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -100,9 +119,19 @@
     <Content Include="Images\carityLogo.png" />
     <Content Include="Images\imageicon.png" />
     <Content Include="LoginRegistration.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="ViewImageFromFile.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddProfile.aspx.cs">
+      <DependentUpon>AddProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddProfile.aspx.designer.cs">
+      <DependentUpon>AddProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CarityMaster.Master.cs">
       <DependentUpon>CarityMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -127,6 +156,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LinkProfile.aspx.cs">
+      <DependentUpon>LinkProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LinkProfile.aspx.designer.cs">
+      <DependentUpon>LinkProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoadImagePage.aspx.cs">
+      <DependentUpon>LoadImagePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoadImagePage.aspx.designer.cs">
+      <DependentUpon>LoadImagePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LoginRegistration.aspx.cs">
       <DependentUpon>LoginRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,10 +186,21 @@
       <DependentUpon>PerfectCarity.dbml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UploadHandler.ashx.cs">
+      <DependentUpon>UploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewImageFromFile.aspx.cs">
+      <DependentUpon>ViewImageFromFile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewImageFromFile.aspx.designer.cs">
+      <DependentUpon>ViewImageFromFile.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

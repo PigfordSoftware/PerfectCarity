@@ -1,52 +1,79 @@
-﻿body {
-    background-color:#FFFCEA;
-    float:left;
-    min-width: 100%;
-    height:100%;
+﻿.auto-style5 {
+         width: 514px;
+      }
+      .auto-style6 {
+         width: 221px;
+      }
+      #Select1 {
+         width: 147px;
+      }
+     
+      .popupMenu {
+            position:absolute;
+            background-color:lightgray;
+            opacity:.9;
+            visibility:hidden;
+            filter: alpha(opacity=90);
+            top: 61px;
+            left: 764px;
+            height: 130px;
+            margin-top: 0px;
 }
-.loginHeader {
-    background-color:#6EC1DD;
-    float:left;
-    width:inherit;
-}
-.loginHeader .loginInfo {
-    position:relative;
-    right:10px;
-    top:1px;
-    width: 664px;
-    height:51px;
-}
-.loginHeader .loginInfo .userName {
-    align-content:center;
-    float:right;
-    position:relative;
-    top:3px;
-    right:273px;
-    width:200px;
-    height:41px;
-}
-.loginHeader .loginInfo .password {
-    align-content:center;
-    float:right;
-    position:relative;
-    top:2px;
-    right:-131px;
-    width:200px;
-    height:42px;
-}
-.loginHeader .loginInfo .loginButtonHeader {
-    align-content:center;
-    float:right;
-    position:relative;
-    top:19px;
-    left:383px;
-    height: 29px;
-    width: 50px;
-}
-.textbox {
-    border-radius:10px;
-}
-.button {
-    border-radius:5px;
-}
-
+      .popupHover {
+         background-position:left top;
+         visibility:visible;
+      }
+      .pageTitle {   
+         font-weight: 700;
+         font-size: xx-large;
+         color: #1C0F00;
+      }
+      .pageHeader2 {  
+         font-weight: 600;
+         font-size: large;
+         color: #1C0F00;
+      }
+      .editUserImage {
+         position:relative;
+         top:-21px;
+         left:106px;
+      }
+      .hidden {
+         visibility:hidden;
+      }
+      .textBox {
+         border-radius:5px;
+      }
+      .editProfileImage {
+         position:relative;
+         top:-14px;
+         left:133px;
+      }
+      .profileUserEmails {
+         position:relative;
+         top:0px;
+         left:43px;
+      }
+      .profileUserAccess {
+         position:relative;
+         top:-23px;
+         left:330px;
+      }
+      .auto-style8 {
+         width: 177px;
+      }
+      .button
+      {
+         background-color:#009900;
+         color:White;
+         border-radius:5px;
+      }
+      .dropDownLink {
+         color:white;
+         font-size:12px;
+      }
+      .addUser {
+         position:relative;
+         top:0px;
+         left:0px;
+      }
