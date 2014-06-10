@@ -2,14 +2,14 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
    <link href="Carity.css" rel="stylesheet" />
-<style type="text/css">
-   .auto-style7 {
-      width: 297px;
-   }
-   .auto-style9 {
-      width: 513px;
-   }
-</style>
+   <style type="text/css">
+      .auto-style7 {
+         width: 297px;
+      }
+      .auto-style9 {
+         width: 513px;
+      }
+   </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphHeader" runat="server">
    <asp:ToolkitScriptManager runat="server" ID="sm1"/>
@@ -52,12 +52,13 @@
          <td style="padding-left: 25px; text-align: left;" class="auto-style9">
             <asp:Label ID="lblEditUser" runat="server" CssClass="pageTitle" ForeColor="#1C0F00" Text="Create Profile"></asp:Label>
             <br />
-            &nbsp;<asp:TextBox ID="txtName" runat="server" style="font-size: large" PlaceHolder="Name" Width="276px" CssClass="textBox"></asp:TextBox>
+            &nbsp;
+            <asp:TextBox ID="txtName" runat="server" CssClass="textBox" style="font-size: large" PlaceHolder="Name" Width="200px"></asp:TextBox>
             <br />
             <br />
             <asp:Label ID="Label1" runat="server" CssClass="pageHeader2" Text="Profile Image"></asp:Label>
             <div class="editProfileImage" style="width: 173px; height: 176px;">               
-               <asp:ImageButton ID="imgUserImage" runat="server" Height="150px" Width="150px" TabIndex="1"  OnClientClick="OpenFO();" CssClass="editProfile"></asp:ImageButton>
+               <asp:ImageButton ID="imgProfileImage" runat="server" Height="150px" Width="150px" TabIndex="1"  OnClientClick="OpenFO();" CssClass="editProfile"></asp:ImageButton>
                <br />
                <script type="text/javascript">
                   function OpenFO() {
@@ -66,25 +67,39 @@
                      return false;
                   }
                </script>
+               <script src="Scripts/jquery-2.1.1.min.js"></script>
+               <script type="text/javascript">
+                  $(document).ready( function ()
+                  {
+                  });
+
+                  function save(e) 
+                  {
+                     var path = e.value;
+                     var profile = "<%= txtName.Text %>";
+                     $.post("UploadHandler.ashx", { path: path, username: profile }, function (data) {
+                        var datta = data;
+                        return true;
+                     });
+
+                  }
+               </script>
                <input id="ofd" type="file" onchange="save(this);" style=" visibility:hidden;" />
             </div>
             <br />
             <br />
             <asp:Label ID="Label2" runat="server" CssClass="pageHeader2" Text="Profile Users"></asp:Label>
             <br />
+            <div class="addProfilePlaceholder">
+               <asp:PlaceHolder ID="profileEmails" runat="server"></asp:PlaceHolder>
+            &nbsp;</div>
             <br />
-            <asp:Panel ID="profileEmails" runat="server" CssClass="profileUserEmails">
-
-            </asp:Panel>
-            <asp:Panel ID="profileUserAccess" runat="server" CssClass="profileUserAccess">
-
-            </asp:Panel>
             <asp:ImageButton ID="addUser" runat="server" Height="30px" ImageUrl="~/Images/plus.png" Width="30px" OnClick="addUser_Click" CssClass="addUserImage" />
             <asp:TextBox ID="txtEmailAddress" runat="server" CssClass="textBox" Enabled="False" ReadOnly="True" Placeholder ="Email Address" Height="16px" Width="269px"></asp:TextBox>
             <asp:TextBox ID="userAccess" runat="server" CssClass="textBox" Enabled="False" ReadOnly="True" Placeholder ="Access"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="createButton" runat="server" CssClass="button" Width ="100px" Text="Create" />
+            <asp:Button ID="createButton" runat="server" CssClass="button" Width ="100px" Text="Create" OnClick="createButton_Click" />
          </td>
          </td>
       </tr>

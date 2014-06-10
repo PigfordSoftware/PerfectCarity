@@ -77,3 +77,25 @@
          top:0px;
          left:0px;
       }
+      .addProfilePlaceholder {
+         position:relative;
+         top:0px;
+         left:34px;
+      }
+      .centerPanel {
+         width:600px; 
+         margin-left:auto; 
+         margin-right:auto;
+         border-color:ActiveBorder;
+         border:solid;
+      }
+      .repeater {
+         width:600px;
+         margin:0;
+         align-content:flex-start;
+      }
+      .entryDescription {
+         width:400px;
+         align-items:flex-start;
+         margin:0;
+      }

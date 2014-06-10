@@ -83,9 +83,14 @@
     <Content Include="imageLoad.html" />
     <Content Include="Images\4 points with Carity.png" />
     <Content Include="Images\carityName.png" />
+    <Content Include="Images\file_edit.png" />
     <Content Include="Images\Hand Logo White.png" />
     <Content Include="Images\Hand Logo.png" />
+    <Content Include="Images\negative.png" />
+    <Content Include="Images\neutral.png" />
     <Content Include="Images\plus.png" />
+    <Content Include="Images\positive.png" />
+    <Content Include="Images\Search.png" />
     <Content Include="Images\settings.png" />
     <Content Include="LinkProfile.aspx" />
     <Content Include="LoadImagePage.aspx" />
@@ -100,6 +105,7 @@
     </None>
     <None Include="Properties\PublishProfiles\pigfordsoftware.com - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="ProfileDetails.aspx" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="UploadImage.cshtml" />
@@ -118,7 +124,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\carityLogo.png" />
     <Content Include="Images\imageicon.png" />
-    <Content Include="LoginRegistration.aspx" />
+    <Content Include="Default.aspx" />
     <Content Include="ViewImageFromFile.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -170,12 +176,12 @@
     <Compile Include="LoadImagePage.aspx.designer.cs">
       <DependentUpon>LoadImagePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LoginRegistration.aspx.cs">
-      <DependentUpon>LoginRegistration.aspx</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoginRegistration.aspx.designer.cs">
-      <DependentUpon>LoginRegistration.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="PerfectCarity.cs">
       <DependentUpon>PerfectCarity.dbml</DependentUpon>
@@ -184,6 +190,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PerfectCarity.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileDetails.aspx.cs">
+      <DependentUpon>ProfileDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProfileDetails.aspx.designer.cs">
+      <DependentUpon>ProfileDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UploadHandler.ashx.cs">

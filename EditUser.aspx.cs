@@ -29,7 +29,7 @@ namespace PerfectCarity
 
          string[] questions = {
                                      "What city were you born?", 
-                                     "What is your parental grandmother's first name?", 
+                                     "What is your paternal grandmother's first name?", 
                                      "What is the model of you first car?"
                                  };
          ddlSecurityQuest1.DataSource = questions;
@@ -38,10 +38,10 @@ namespace PerfectCarity
          ddlSecurityQuest2.DataBind();
 
          //cookies get cookies
-         foreach (HttpCookie cookie in Request.Cookies)
+         foreach (String key in Request.Cookies)
          {//pull the cookie for our loginID which is sent when loging in
-            if (cookie.Name.CompareTo("loginID") == 0)
-               username = cookie.Value.ToString();
+            if (key.CompareTo("loginID") == 0)
+               username = Request.Cookies[key].Value.ToString();
          }
 
          if (String.IsNullOrEmpty(username))
@@ -94,11 +94,10 @@ namespace PerfectCarity
             myUser.security_answer_1 = txtAnswer1.Text;
             myUser.security_question_2 = ddlSecurityQuest2.SelectedIndex;
             myUser.security_answer_2 = txtAnswer2.Text;
-
-            db.CarityUsers.InsertOnSubmit(myUser);
+           
             db.SubmitChanges();
-
-            Server.Transfer("LoginRegistration.aspx");
+            //need to determine where to go
+            Server.Transfer("AddProfile.aspx");
       }
 
       protected void lbChange_Click(object sender, EventArgs e)

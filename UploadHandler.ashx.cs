@@ -17,8 +17,17 @@ namespace PerfectCarity
          string path = context.Request["path"];
          string username = context.Request["username"];
          FileInfo file = new FileInfo(path);
-         string filename = context.Server.MapPath("~//Uploads//") + username + "_" + file.Name;
-         file.CopyTo(filename);
+         string filename = context.Server.MapPath("~//Uploads//") + username;
+         try
+         {
+            if (File.Exists(filename))
+               File.Delete(filename);
+            file.CopyTo(filename);
+         }
+         catch
+         {
+            return;
+         }
          string name = "~/Uploads/"+username+"_"+file.Name;
          FileStream fs = new FileStream(path, FileMode.Open);
          Byte[] fileData = null;

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Carity Login" Language="C#" MasterPageFile="~/CarityMaster.Master" AutoEventWireup="true" CodeBehind="LoginRegistration.aspx.cs" Inherits="PerfectCarity.LoginRegistration" %>
+﻿<%@ Page Title="Carity Login" Language="C#" MasterPageFile="~/CarityMaster.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PerfectCarity.LoginRegistration" %>
 <%@ MasterType VirtualPath="~/CarityMaster.Master" %>
 
 <asp:Content ID="loginHeader" runat="server" contentplaceholderid="cphHeader">
@@ -6,12 +6,12 @@
         <table class="auto-style1">
             <tr>
                 <td class="auto-style6">
-                    <asp:Image ID="Image1" runat="server" Height="37px" ImageUrl="~/Images/carityNameWhite.png" Width="109px" />
+                    <asp:Image ID="Image1" runat="server" Height="37px" ImageUrl="~/Images/carityNameWhite.png" Width="109px" ></asp:Image>
                 </td>
                 <td style="text-align: right; vertical-align: middle; padding-right: 20px;">
                     <asp:TextBox ID="txtUsername" runat="server" BorderStyle="Inset" Placeholder="Username" CssClass ="textBox"></asp:TextBox>
-                    <asp:TextBox ID="txtPassword" runat="server" BorderStyle="Inset" Placeholder="Password" TextMode="Password"> CssClass ="textBox"</asp:TextBox>
-                    <asp:Button ID="loginButton" runat="server" Text="Login" OnClick="loginButton_Click"  CssClass ="button" />
+                    <asp:TextBox ID="txtPassword" runat="server" BorderStyle="Inset" Placeholder="Password" TextMode="Password" CssClass ="textBox"></asp:TextBox>
+                    <asp:Button ID="loginButton" runat="server" Text="Login" OnClick="loginButton_Click"  CssClass ="button" CausesValidation="False" ></asp:Button>
                     <br />
                     <span class="auto-style7"><a href="ForgotPassword.aspx"><span class="auto-style8">Forgot Password</span></a>?</span><br />
                 </td>
@@ -45,10 +45,7 @@
        .auto-style12 {
           height: 33px;
        }
-       .auto-style13 {
-          width: 400px;
-       }
-    </style>
+       </style>
 </asp:Content>
 
 
@@ -58,7 +55,7 @@
         <tr>
             <td class="auto-style9" style="vertical-align: middle"></td>
             <td class="auto-style12" style="font-family: Arial, Helvetica, sans-serif; font-size: xx-large; color: #0000FF; text-align: left">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sign Up</td>
+                &nbsp;&nbsp;Sign Up</td>
         </tr>
         <tr>
             <td style="vertical-align: top" aria-hidden="True">&nbsp;&nbsp;<img alt="" class="auto-style11" src="Images/4%20points%20with%20Carity.png" /></td>
@@ -67,7 +64,7 @@
                 <asp:RequiredFieldValidator ID="rfvRegEmailAddress" runat="server" ControlToValidate="txtRegEmailAddress" ErrorMessage="Email Address Required" ForeColor="Red">*</asp:RequiredFieldValidator>
                 <br />
                 <br />
-                <asp:TextBox ID="txtRegUsername" runat="server" Placeholder="Username" ForeColor="Black" MaxLength="32" Width="350px" CssClass="textBox"></asp:TextBox>
+                <asp:TextBox ID="txtRegUsername" runat="server" Placeholder="Username" MaxLength="32" Width="350px" CssClass="textBox"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvRegUsername" runat="server" ControlToValidate="txtRegUsername" ErrorMessage="Username required" ForeColor="Red">*</asp:RequiredFieldValidator>
                 <br />
                 <br />

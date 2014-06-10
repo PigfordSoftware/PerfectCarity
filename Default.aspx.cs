@@ -16,7 +16,7 @@ namespace PerfectCarity
         {
             string[] questions = {
                                      "What city were you born?", 
-                                     "What is your parental grandmother's first name?", 
+                                     "What is your paternal grandmother's first name?", 
                                      "What is the model of you first car?"
                                  };
             ddlSecurityQuest1.DataSource = questions;
@@ -88,6 +88,10 @@ namespace PerfectCarity
                 {
                    //lblMsg.Text = "\n\n\n" + exe.ToString();
                 }
+                HttpCookie cookie = new HttpCookie("loginID");
+                cookie.Value = txtRegUsername.Text;
+                cookie.Expires = DateTime.Now.AddHours(2);
+                Response.Cookies.Add(cookie);
                 Server.Transfer("EditUser.aspx");
             }
             else
@@ -104,25 +108,31 @@ namespace PerfectCarity
                //get the single row from the table CarityUsers with the same username that was typed in
                 var cUser =
                     (from user in db.CarityUsers
-                     where user.username == txtRegUsername.Text
+                     where user.username == txtUsername.Text
                      select user).Single();
 
                 if (cUser.password == txtPassword.Text)
                 {
                     //password is valid
                    //cookies sent and move to next page
-                   HttpCookie cookie = new HttpCookie("loginId", txtUsername.Text);
+                   HttpCookie cookie = new HttpCookie("loginID", txtUsername.Text);
                    cookie.Expires = DateTime.Now.AddHours(2);
                    Response.Cookies.Add(cookie);
+                   if (cUser.Profiles.Count > 0)
+                      Server.TransferRequest("ProfileDetails.aspx");
+                   else
+                      Server.TransferRequest("AddProfile.aspx");
                 }
                 else
                 {
                     //password is not valid
+                   Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ALERT", "alert('The username and or password is invalid.')", true);
                 }
             }
             catch
             {
                 //login failed because username doesnt exist
+               Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ALERT", "alert('The username and or password is invalid.')", true);
             }
         }
 

@@ -29,7 +29,7 @@
             <tr>
                 <td class="auto-style4" style="background-color: #6EC1DD; font-family: Cambria; color: #FFFFFF; font-size: large; font-weight: bold; text-align: center; vertical-align: middle;">
                     <asp:ContentPlaceHolder ID="cphHeader" runat="server">
-                        <asp:Image ID="carityLogo" runat="server" Height="69px" ImageUrl="~/Images/Hand Logo White.png" Width="118px" />
+                        <asp:Image ID="carityLogo" runat="server" Height="69px" ImageUrl="~/Images/Hand Logo White.png" Width="118px" ></asp:Image>
                     </asp:ContentPlaceHolder>
                 </td>
             </tr>
