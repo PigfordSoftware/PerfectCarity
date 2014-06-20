@@ -10,14 +10,15 @@
      
       .popupMenu {
             position:absolute;
-            background-color:lightgray;
+            background-color: #6EC1DD;
             opacity:.9;
             visibility:hidden;
             filter: alpha(opacity=90);
             top: 61px;
-            left: 764px;
+            left: 730px;
             height: 130px;
             margin-top: 0px;
+            border-radius: 4px;
 }
       .popupHover {
          background-position:left top;
@@ -86,8 +87,10 @@
          width:600px; 
          margin-left:auto; 
          margin-right:auto;
-         border-color:ActiveBorder;
-         border:solid;
+      }
+      .centerLeftJustified {
+         width:600px;
+         text-align:left;
       }
       .repeater {
          width:600px;

@@ -83,6 +83,7 @@
     <Content Include="imageLoad.html" />
     <Content Include="Images\4 points with Carity.png" />
     <Content Include="Images\carityName.png" />
+    <Content Include="Images\fancyStar.jpg" />
     <Content Include="Images\file_edit.png" />
     <Content Include="Images\Hand Logo White.png" />
     <Content Include="Images\Hand Logo.png" />
@@ -92,6 +93,7 @@
     <Content Include="Images\positive.png" />
     <Content Include="Images\Search.png" />
     <Content Include="Images\settings.png" />
+    <Content Include="Images\star.png" />
     <Content Include="LinkProfile.aspx" />
     <Content Include="LoadImagePage.aspx" />
     <Content Include="PerfectCarity.dbml">

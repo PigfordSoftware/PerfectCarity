@@ -22,6 +22,33 @@ namespace PerfectCarity {
         protected global::AjaxControlToolkit.ToolkitScriptManager sm1;
         
         /// <summary>
+        /// profileLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label profileLabel;
+        
+        /// <summary>
+        /// ImageButton2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton2;
+        
+        /// <summary>
+        /// goalLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label goalLabel;
+        
+        /// <summary>
         /// ImageButton1 control.
         /// </summary>
         /// <remarks>
@@ -121,13 +148,13 @@ namespace PerfectCarity {
         protected global::System.Web.UI.WebControls.Panel userInfoPanel;
         
         /// <summary>
-        /// Image1 control.
+        /// profileImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image profileImage;
         
         /// <summary>
         /// lblProfileName control.
@@ -166,12 +193,12 @@ namespace PerfectCarity {
         protected global::System.Web.UI.WebControls.ImageButton searchButton;
         
         /// <summary>
-        /// Repeater1 control.
+        /// noteRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
+        protected global::System.Web.UI.WebControls.Repeater noteRepeater;
     }
 }

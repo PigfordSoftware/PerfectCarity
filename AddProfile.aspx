@@ -31,77 +31,51 @@
                      </asp:HoverMenuExtender>
                      <asp:Panel ID="PopupMenu" runat="server" CssClass="popupMenu">
                         <br />
-                        <asp:HyperLink ID="editUserLink" runat="server" Text="Account Settings" CssClass="dropDownLink" NavigateURL="~/EditUser.aspx"/>
+                        <asp:LinkButton ID="editUserLink" runat="server" CommandName ="EditUser.aspx" Text="Edit User" CssClass="dropDownLink" OnClick="OnNavBarLink_Click" ></asp:LinkButton>
                         <br />
-                        <asp:LinkButton ID="editProfileLink" runat="server" CommandName="EditProfile.aspx" Text="Edit Profile" OnClick="OnEditProfile_Click" CssClass="dropDownLink" />
+                        <asp:LinkButton ID="editProfileLink" runat="server" CommandName="EditProfile.aspx" Text="Edit Profile" OnClick="OnNavBarLink_Click" CssClass="dropDownLink" />
                         <br />
-                        <asp:HyperLink ID="addProfileLink" runat="server" Text="Create New Profile" CssClass="dropDownLink" NavigateURL="~/AddProfile.aspx" />
+                        <asp:LinkButton ID="addProfileLink" runat="server" CommandName="AddProfile.aspx" Text="Create New Profile" CssClass="dropDownLink" OnClick="OnNavBarLink_Click" />
                         <br />
-                        <asp:HyperLink ID="linkProfileLink" runat="server" Text="Link To Profile" CssClass="dropDownLink" NavigateURL="~/LinkProfile.aspx" />
+                        <asp:LinkButton ID="linkProfileLink" runat="server" CommandName="LinkProfile.aspx" Text="Link To Profile" CssClass="dropDownLink" OnClick="OnNavBarLink_Click" />
                         <br />
-                        <asp:LinkButton ID="logoutLink" runat="server" CommandName="LoginRegistration.aspx" OnClick="OnLogout_Click" Text="Log Out" CssClass="dropDownLink" />
+                        <asp:LinkButton ID="logoutLink" runat="server" CommandName="LoginRegistration.aspx" OnClick="OnNavBarLink_Click" Text="Log Out" CssClass="dropDownLink" />
                      </asp:Panel>
                   </td>
                </tr>
    </table>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphPageDetails" runat="server">
-   <table class="auto-style1" style="width: 69%">
-      <tr>
-         <td class="auto-style8">
-         <td style="padding-left: 25px; text-align: left;" class="auto-style9">
-            <asp:Label ID="lblEditUser" runat="server" CssClass="pageTitle" ForeColor="#1C0F00" Text="Create Profile"></asp:Label>
+   <div class="centerPanel">
+      <div class="centerLeftJustified">
+         <asp:Label ID="lblEditUser" runat="server" CssClass="pageTitle" ForeColor="#1C0F00" Text="Create Profile"></asp:Label>
+         <br />
+         &nbsp;
+            <asp:TextBox ID="txtName" runat="server" CssClass="textBox" Style="font-size: large" PlaceHolder="Name" Width="200px"></asp:TextBox>
+         <br />
+         <br />
+         <asp:Label ID="Label1" runat="server" CssClass="pageHeader2" Text="Profile Image"></asp:Label>
+         <div class="editProfileImage" style="width: 173px; height: 176px;">
+            <asp:Image ID="imgProfileImage" runat="server" Height="150px" Width="150px" TabIndex="1" CssClass="editProfile"></asp:Image>
+            <asp:FileUpload ID="fileUpload" runat="server" ></asp:FileUpload>
             <br />
+            <asp:Button ID="UploadImage" runat="server" Text="Upload" OnClick="uploadButton_Click" ></asp:Button>
+         </div>
+         <br />
+         <br />
+         <asp:Label ID="Label2" runat="server" CssClass="pageHeader2" Text="Profile Users"></asp:Label>
+         <br />
+         <div class="addProfilePlaceholder">
+            <asp:PlaceHolder ID="profileEmails" runat="server"></asp:PlaceHolder>
             &nbsp;
-            <asp:TextBox ID="txtName" runat="server" CssClass="textBox" style="font-size: large" PlaceHolder="Name" Width="200px"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Label ID="Label1" runat="server" CssClass="pageHeader2" Text="Profile Image"></asp:Label>
-            <div class="editProfileImage" style="width: 173px; height: 176px;">               
-               <asp:ImageButton ID="imgProfileImage" runat="server" Height="150px" Width="150px" TabIndex="1"  OnClientClick="OpenFO();" CssClass="editProfile"></asp:ImageButton>
-               <br />
-               <script type="text/javascript">
-                  function OpenFO() {
-                     var ofd = document.getElementById("ofd");
-                     ofd.click();
-                     return false;
-                  }
-               </script>
-               <script src="Scripts/jquery-2.1.1.min.js"></script>
-               <script type="text/javascript">
-                  $(document).ready( function ()
-                  {
-                  });
-
-                  function save(e) 
-                  {
-                     var path = e.value;
-                     var profile = "<%= txtName.Text %>";
-                     $.post("UploadHandler.ashx", { path: path, username: profile }, function (data) {
-                        var datta = data;
-                        return true;
-                     });
-
-                  }
-               </script>
-               <input id="ofd" type="file" onchange="save(this);" style=" visibility:hidden;" />
-            </div>
-            <br />
-            <br />
-            <asp:Label ID="Label2" runat="server" CssClass="pageHeader2" Text="Profile Users"></asp:Label>
-            <br />
-            <div class="addProfilePlaceholder">
-               <asp:PlaceHolder ID="profileEmails" runat="server"></asp:PlaceHolder>
-            &nbsp;</div>
-            <br />
-            <asp:ImageButton ID="addUser" runat="server" Height="30px" ImageUrl="~/Images/plus.png" Width="30px" OnClick="addUser_Click" CssClass="addUserImage" />
-            <asp:TextBox ID="txtEmailAddress" runat="server" CssClass="textBox" Enabled="False" ReadOnly="True" Placeholder ="Email Address" Height="16px" Width="269px"></asp:TextBox>
-            <asp:TextBox ID="userAccess" runat="server" CssClass="textBox" Enabled="False" ReadOnly="True" Placeholder ="Access"></asp:TextBox>
-            <br />
-            <br />
-            <asp:Button ID="createButton" runat="server" CssClass="button" Width ="100px" Text="Create" OnClick="createButton_Click" />
-         </td>
-         </td>
-      </tr>
-   </table>
+         </div>
+         <br />
+         <asp:ImageButton ID="addUser" runat="server" Height="30px" ImageUrl="~/Images/plus.png" Width="30px" OnClick="addUser_Click" CssClass="addUserImage" />
+         <asp:TextBox ID="txtEmailAddress" runat="server" CssClass="textBox" Enabled="False" ReadOnly="True" Placeholder="Email Address" Height="16px" Width="269px"></asp:TextBox>
+         <asp:TextBox ID="userAccess" runat="server" CssClass="textBox" Enabled="False" ReadOnly="True" Placeholder="Access"></asp:TextBox>
+         <br />
+         <br />
+         <asp:Button ID="createButton" runat="server" CssClass="button" Width="100px" Text="Create" OnClick="createButton_Click" />
+      </div>
+   </div>
 </asp:Content>

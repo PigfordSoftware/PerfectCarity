@@ -92,7 +92,7 @@ namespace PerfectCarity
                 cookie.Value = txtRegUsername.Text;
                 cookie.Expires = DateTime.Now.AddHours(2);
                 Response.Cookies.Add(cookie);
-                Server.Transfer("EditUser.aspx");
+                Server.TransferRequest("EditUser.aspx?username="+txtUsername.Text);
             }
             else
             {
@@ -119,9 +119,9 @@ namespace PerfectCarity
                    cookie.Expires = DateTime.Now.AddHours(2);
                    Response.Cookies.Add(cookie);
                    if (cUser.Profiles.Count > 0)
-                      Server.TransferRequest("ProfileDetails.aspx");
+                      Response.Redirect("ProfileDetails.aspx?username=" + txtUsername.Text);
                    else
-                      Server.TransferRequest("AddProfile.aspx");
+                      Response.Redirect("AddProfile.aspx?username=" + txtUsername.Text);
                 }
                 else
                 {

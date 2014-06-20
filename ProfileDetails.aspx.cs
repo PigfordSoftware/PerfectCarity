@@ -20,6 +20,21 @@ namespace PerfectCarity
             ViewState["profile_id"] = value;
          }
       }
+      
+      protected void Page_Init(object sender, EventArgs e)
+      {
+         try
+         {//make sure we initialize the profile id to zero so we know if we have been on this page before
+            if(Object.Equals(ProfileID,null))
+               ProfileID = 0;
+         }
+         catch
+         {
+            ProfileID = 0;
+         }
+         return;
+      }
+
       protected void Page_Load(object sender, EventArgs e)
       {
 
@@ -38,7 +53,7 @@ namespace PerfectCarity
 
          var db = new PerfectCarityDataContext();
 
-         if (Object.Equals(ProfileID, null))
+         if (ProfileID == 0)
          {
             if (Request.QueryString["ProfileID"] != null)
             {
@@ -46,17 +61,40 @@ namespace PerfectCarity
             }
             else
             {
-               var profile_id = (from prof in db.Profiles
-                                 where prof.username == username
-                                 select prof.profile_id).Single();
+               try
+               {
 
-               ProfileID = profile_id;
+                  var profile_id = (from prof in db.Profiles
+                                    where prof.username == username
+                                    select prof.profile_id).Single();
+
+                  ProfileID = profile_id;
+               }
+               catch
+               {
+                  Server.Transfer("AddProfile.aspx");
+                  return;
+               }
             }
          }
 
          var profile = (from prof in db.Profiles
                         where prof.profile_id == ProfileID
                         select prof).Single();
+
+         lblProfileName.Text = profile.name;
+         profileLabel.Text = profile.name;
+         profileImage.ImageUrl = "LoadImagePage.aspx?ImageID=" + profile.image_id.ToString();
+      }
+
+      protected void OnEditProfile_Click(Object sender, EventArgs e)
+      {
+         return;
+      }
+
+      protected void OnLogout_Click(object sender, EventArgs e)
+      {
+         return;
       }
    }
 }

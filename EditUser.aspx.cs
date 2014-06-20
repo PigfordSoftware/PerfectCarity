@@ -4,27 +4,41 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace PerfectCarity
 {
    public partial class EditUser : System.Web.UI.Page
    {
-      string username;
+      public string username
+      {
+         get
+         {
+            return (string)ViewState["username"];
+         }
+         set
+         {
+            ViewState["username"] = value;
+         }
+      }
+      public string imageFileName
+      {
+         get
+         {
+            return (string)ViewState["imageFileName"];
+         }
+         set
+         {
+            ViewState["imageFileName"] = value;
+         }
+      }
       protected void Page_Load(object sender, EventArgs e)
       {
 
-         if (Request.QueryString["Method"] == "SetImageButtonURL")
+         if (String.IsNullOrEmpty(username))
          {
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            //SetImageButtonURL(Request.QueryString["filename"]);
-            imgUserImage.ImageUrl = "ViewImageFromFile.aspx?imgName=" + Request.QueryString["filename"]+"?"+DateTime.Now.Second;
-            ImageButton imageB = new ImageButton();
-            imageB.ImageUrl = Request.QueryString["filename"];
-            imageB.Height=150;
-            imageB.Width=150;
-            imageB.OnClientClick = "OpenFO();";
-            imgUserImage = imageB;
-            return;
+            if (Request.QueryString["username"] != null)
+               username = Request.QueryString["username"].ToString();
          }
 
          string[] questions = {
@@ -36,21 +50,6 @@ namespace PerfectCarity
          ddlSecurityQuest1.DataBind();
          ddlSecurityQuest2.DataSource = questions;
          ddlSecurityQuest2.DataBind();
-
-         //cookies get cookies
-         foreach (String key in Request.Cookies)
-         {//pull the cookie for our loginID which is sent when loging in
-            if (key.CompareTo("loginID") == 0)
-               username = Request.Cookies[key].Value.ToString();
-         }
-
-         if (String.IsNullOrEmpty(username))
-         {
-            //imgUserImage.Attributes.Add("onclick", "return OpenFO();");
-            txtName.Focus();
-            imgUserImage.ImageUrl="~\\Images\\imageicon.png";
-            return;
-         }
 
          lbl_username.Text = username;
 
@@ -68,13 +67,13 @@ namespace PerfectCarity
          txtAnswer2.Text = user.security_answer_2;
 
          if (Object.Equals(user.image_id, null))
-            //lbChange.Visible = false;
-           {}
+         {
+            imgUserImage.ImageUrl = "~/Images/imageicon.png";
+         }
          else
          {//load image from the data base
             imgUserImage.ImageUrl = "ImageLoadPage.aspx?ImageID=" + user.image_id.ToString();
          }
-
 
          txtName.Focus();
       }
@@ -94,28 +93,79 @@ namespace PerfectCarity
             myUser.security_answer_1 = txtAnswer1.Text;
             myUser.security_question_2 = ddlSecurityQuest2.SelectedIndex;
             myUser.security_answer_2 = txtAnswer2.Text;
-           
+
+            if (!String.IsNullOrEmpty(imageFileName))
+            {
+               //create an Image class to save the image that was uploaded
+               PerfectCarity.Image image = new Image();
+               image.username = username;
+               //pull the image into memory so it can be saved in the database
+               FileStream fs = new FileStream(imageFileName, FileMode.Open);
+               Byte[] fileData = null;
+               Array.Resize(ref fileData, (int)fs.Length);
+               fs.Read(fileData, 0, (int)fs.Length);
+               fs.Close();
+               File.Delete(imageFileName);
+               //set image properties
+               image.size = (int)fs.Length;
+               image.image1 = fileData;
+               db.Images.InsertOnSubmit(image);
+            }
             db.SubmitChanges();
+            if (!String.IsNullOrEmpty(imageFileName))
+            {
+               //need to get the image that was just inserted
+               var image_id = (from img in db.Images
+                               where img.username == username
+                               select img.image_id).Max();
+               //set profile image_id equal to the image just inserted
+               myUser.image_id = image_id;
+               //commit changes
+               db.SubmitChanges();
+               imageFileName = "";
+            }
             //need to determine where to go
-            Server.Transfer("AddProfile.aspx");
+            Response.Redirect("ProfileDetails.aspx?username=" + username);
       }
 
-      protected void lbChange_Click(object sender, EventArgs e)
+      protected void uploadButton_Click(object sender, EventArgs e)
       {
-        
+         string status = "";
+         if (fileUpload.HasFile)
+         {
+            try
+            {
+               if (fileUpload.PostedFile.ContentType == "image/jpeg")
+               {
+                  if (fileUpload.PostedFile.ContentLength < 2048000)
+                  {
+                     string filename = Path.GetFileName(fileUpload.FileName);
+                     fileUpload.SaveAs(Server.MapPath("~/Uploads/") + filename);
+                     imageFileName = Server.MapPath("~/Uploads/") + filename;
+                  }
+                  else
+                     status = "The file must to be less than 2 MB";
+               }
+               else
+                  status = "Only JPEG files are accepted.";
+            }
+            catch (Exception ex)
+            {
+               status = "The file could not be uploaded. The following error occured: " + ex.Message;
+            }
+         }
+         if (String.IsNullOrEmpty(status))
+         {
+            //password is not valid
+            Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ALERT", "alert('" + status + "')", true);
+            return;
+         }
       }
 
-      private void SetImageButtonURL(string filename)
+      protected void OnNavBarLink_Click(object sender, EventArgs e)
       {
-         imgUserImage.ImageUrl = filename+"?"+DateTime.Now.ToString();
-         return;
-      }
-      protected void OnLogout_Click(object sender, EventArgs e)
-      {
-         return;
-      }
-      protected void OnEditProfile_Click(object sender, EventArgs e)
-      {
+         LinkButton lb = (LinkButton)sender;
+         Response.Redirect(lb.CommandName + "?username=" + username);
          return;
       }
    }

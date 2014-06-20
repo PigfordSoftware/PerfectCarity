@@ -73,7 +73,7 @@ namespace PerfectCarity {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink editUserLink;
+        protected global::System.Web.UI.WebControls.LinkButton editUserLink;
         
         /// <summary>
         /// editProfileLink control.
@@ -91,7 +91,7 @@ namespace PerfectCarity {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink addProfileLink;
+        protected global::System.Web.UI.WebControls.LinkButton addProfileLink;
         
         /// <summary>
         /// linkProfileLink control.
@@ -100,7 +100,7 @@ namespace PerfectCarity {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink linkProfileLink;
+        protected global::System.Web.UI.WebControls.LinkButton linkProfileLink;
         
         /// <summary>
         /// logoutLink control.
@@ -145,25 +145,25 @@ namespace PerfectCarity {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgUserImage;
+        protected global::System.Web.UI.WebControls.Image imgUserImage;
         
         /// <summary>
-        /// fileUpload1 control.
+        /// fileUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUpload1;
+        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
         
         /// <summary>
-        /// uploadButton control.
+        /// UploadButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button uploadButton;
+        protected global::System.Web.UI.WebControls.Button UploadButton;
         
         /// <summary>
         /// lblSecurityQuestions control.
